@@ -1,0 +1,114 @@
+{
+  "site": {
+    "url": "https://github.com/agaric33/rica-blog/blob/main",
+    "title": "agaric33/rica's Blog",
+    "description": "这是agaric33/rica的个人博客，记录了我的一些想法和思考。",
+    "keywords": "agaric33,rica,blog,personal,thoughts,ideas,notes",
+    "lang": "zh-CN",
+    "favicon": "/favicon.ico",
+    "appleTouchIcon": "/apple-touch-icon.png"
+  },
+  "author": {
+    "name": "agaric33",
+    "twitterId": "",
+    "avatar": "public/avarat.jpeg"
+  },
+  "hero": {
+    "name": "agaric33",
+    "bio": "",
+    "description": "You can also call me rica.",
+    "socials": [
+      {
+        "name": "Github",
+        "icon": "icon-github",
+        "url": "https://github.com/agaric33",
+        "color": "rgb(24, 23, 23)"
+      },
+      {
+        "name": "wechat",
+        "icon": "icon-wechat",
+        "url": "#",
+        "color": "rgb(7, 193, 96)"
+      },
+      {
+        "name": "Email",
+        "icon": "icon-mail",
+        "url": "#",
+        "color": "rgb(212, 70, 56)"
+      }
+    ],
+    "yiyan": "迷则行醒事，明则择事而行"
+  },
+  "color": {
+    "accent": [
+      { "light": "#F55555", "dark": "#FCCF31" },
+      { "light": "#0396FF", "dark": "#ABDCFF" },
+      { "light": "#fb7287", "dark": "#99D8CF" },
+      { "light": "#F072B6", "dark": "#FFF886" },
+      { "light": "#9F44D3", "dark": "#E2B0FF" },
+      { "light": "#FF6666", "dark": "#A1CCD1" },
+      { "light": "#F6416C", "dark": "#838BC6" },
+      { "light": "#32CCBC", "dark": "#90F7EC" },
+      { "light": "#33A6B8", "dark": "#79F1A4" },
+      { "light": "#F55555", "dark": "#FCCF31" }
+    ],
+    "bg": {
+      "primary": { "light": "#ffffff", "dark": "#1c1c1e" },
+      "secondary": { "light": "#f4f4f5", "dark": "#27272a" }
+    },
+    "text": {
+      "primary": { "light": "#373a3c", "dark": "#ffffff" },
+      "secondary": { "light": "#71717a", "dark": "#d1d5db" }
+    },
+    "border": {
+      "primary": { "light": "#e4e4e7", "dark": "#3f3f46" }
+    }
+  },
+  "menus": [
+    {
+      "name": "Home",
+      "link": "/",
+      "icon": "icon-pantone"
+    },
+    {
+      "name": "Posts",
+      "link": "/archives",
+      "icon": "icon-archive"
+    },
+    {
+      "name": "About",
+      "link": "/about",
+      "icon": "icon-ghost"
+    },
+    {
+      "name": "Friends",
+      "link": "/friends",
+      "icon": "icon-hearts"
+    }
+  ],
+  "posts": {
+    "perPage": 10
+  },
+  "footer": {
+    "startTime": "2025-08-21T00:00:00Z"
+  },
+  "waline": {
+    "serverURL": ""
+  },
+  "sponsor": {
+    "wechat": "https://object.lxchapu.com/bed%2F2024%2F0507_6e3e8f73df2d4e6d.webp"
+  },
+  "analytics": {
+    "enable": false,
+    "google": {
+      "measurementId": ""
+    },
+    "umami": {
+      "serverUrl": "",
+      "websiteId": ""
+    },
+    "microsoftClarity": {
+      "projectId": ""
+    }
+  }
+}

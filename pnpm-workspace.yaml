@@ -1,0 +1,12 @@
+allowBuilds:
+  esbuild: true
+  sharp: true
+  simple-git-hooks: true
+
+onlyBuiltDependencies:
+  - esbuild
+  - sharp
+  - simple-git-hooks
+
+overrides:
+  zod-to-json-schema: 3.23.5
