@@ -27,14 +27,17 @@
       {
         "name": "wechat",
         "icon": "icon-wechat",
-        "url": "#",
         "color": "rgb(7, 193, 96)"
+      },
+      {
+        "name": "rednote",
+        "icon": "icon-rednote",
+        "color": "rgb(212, 70, 56)"
       },
       {
         "name": "Email",
         "icon": "icon-mail",
-        "url": "#",
-        "color": "rgb(212, 70, 56)"
+        "color": "rgb(105, 166, 216)"
       }
     ],
     "yiyan": "迷则行醒事，明则择事而行"
@@ -76,9 +79,19 @@
       "icon": "icon-archive"
     },
     {
+      "name": "Feelings",
+      "link": "/feelings",
+      "icon": "icon-stars"
+    },
+    {
+      "name": "Projects",
+      "link": "/projects",
+      "icon": "icon-project"
+    },
+    {
       "name": "About",
       "link": "/about",
-      "icon": "icon-ghost"
+      "icon": "icon-Mario-Mushroom"
     },
     {
       "name": "Friends",
@@ -90,13 +103,13 @@
     "perPage": 10
   },
   "footer": {
-    "startTime": "2025-08-21T00:00:00Z"
+    "startTime": "2026-08-04T00:00:00Z"
   },
   "waline": {
     "serverURL": ""
   },
   "sponsor": {
-    "wechat": "https://object.lxchapu.com/bed%2F2024%2F0507_6e3e8f73df2d4e6d.webp"
+    "wechat": "https://xxxx.com/xxx.jpg"
   },
   "analytics": {
     "enable": false,

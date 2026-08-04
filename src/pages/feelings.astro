@@ -1,0 +1,32 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro'
+import Highlight from '@/components/Highlight.astro'
+import FeelingCard from '@/components/feelings/FeelingCard.astro'
+import { FeelingsList } from '@/components/feelings/FeelingsList'
+import { getCollection } from 'astro:content'
+
+const feelings = await getCollection('feelings')
+
+// Sort by date descending
+const sortedFeelings = feelings.sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+)
+---
+
+<PageLayout title="Feelings">
+  <div class="max-w-[800px] mx-auto px-4 py-16" data-pagefind-body>
+    <header class="space-y-4 mb-8">
+      <h1 class="text-4xl font-bold">
+        <Highlight>Feelings</Highlight>
+      </h1>
+      <p>记录日常的碎碎念。</p>
+      <hr class="w-[100px] border-primary" />
+    </header>
+
+    <FeelingsList total={sortedFeelings.length} client:load>
+      {sortedFeelings.map((entry) => (
+        <FeelingCard entry={entry} />
+      ))}
+    </FeelingsList>
+  </div>
+</PageLayout>

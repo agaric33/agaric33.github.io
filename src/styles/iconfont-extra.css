@@ -1,0 +1,30 @@
+@font-face {
+  font-family: 'iconfont'; /* Project id 5219577 */
+  src:
+    url('fonts/iconfont-extra.woff2?t=1785849063682') format('woff2'),
+    url('fonts/iconfont-extra.woff?t=1785849063682') format('woff'),
+    url('fonts/iconfont-extra.ttf?t=1785849063682') format('truetype');
+}
+
+.iconfont {
+  font-family: 'iconfont';
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-rednote:before {
+  content: '\e669';
+}
+
+.icon-project:before {
+  content: '\e609';
+}
+
+.icon-Mario-Mushroom:before {
+  content: '\e9f9';
+}
+
+.icon-stars:before {
+  content: '\e61d';
+}

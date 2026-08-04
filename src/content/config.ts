@@ -45,9 +45,17 @@ const friendsCollection = defineCollection({
   }),
 })
 
+const feelingsCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    date: z.date(),
+  }),
+})
+
 export const collections = {
   posts: postsCollection,
   projects: projectsCollection,
   spec: specCollection,
   friends: friendsCollection,
+  feelings: feelingsCollection,
 }

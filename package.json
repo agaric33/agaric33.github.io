@@ -2,16 +2,6 @@
   "name": "rica-blog",
   "type": "module",
   "version": "0.0.1",
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "esbuild",
-      "sharp",
-      "simple-git-hooks"
-    ],
-    "overrides": {
-      "zod-to-json-schema": "3.23.5"
-    }
-  },
   "scripts": {
     "prepare": "pnpm exec simple-git-hooks",
     "dev": "astro dev",
@@ -21,7 +11,8 @@
     "lint": "prettier --write .",
     "new-friend": "node scripts/new-friend.js",
     "new-post": "node scripts/new-post.js",
-    "new-project": "node scripts/new-project.js"
+    "new-project": "node scripts/new-project.js",
+    "new-feeling": "node scripts/new-feeling.js"
   },
   "dependencies": {
     "@astrojs/check": "^0.5.10",
