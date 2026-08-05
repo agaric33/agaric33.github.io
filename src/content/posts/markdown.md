@@ -1,9 +1,9 @@
 ---
 title: Markdown 示例
-date: 2024-04-01
+date: 2026-08-05
 summary: 这是一篇 Markdown 文章的示例。展示了 Markdown 的语法和渲染效果。
-category: 例子
-tags: [Markdown]
+category: 分享
+tags: [share]
 ---
 
 下面是在 Astro 中编写 Markdown 内容时，可以使用的一些基本 Markdown 语法示例。
@@ -83,7 +83,7 @@ The blockquote element represents content that is quoted from another source, op
 
 ## 链接
 
-这是内部链接 [Gyoza 使用指南](/posts/guide)
+这是内部链接 [rica-blog 使用指南](/posts/bolg-guide)
 
 这是外部连接 [React **中文**文档](https://zh-hans.react.dev/)
 

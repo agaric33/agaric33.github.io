@@ -28,15 +28,18 @@ const description = await input({
   message: '请输入描述',
 })
 const link = await input({
-  message: '请输入地址',
+  message: '请输入地址（可为空）',
+  default: '',
 })
 const avatar = await input({
   message: '请输入头像地址',
 })
 
+const linkLine = link ? `link: ${link}` : `link: ""`
+
 const content = `title: ${title}
 description: ${description}
-link: ${link}
+${linkLine}
 avatar: ${avatar}
 `
 

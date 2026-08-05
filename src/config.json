@@ -1,6 +1,6 @@
 {
   "site": {
-    "url": "https://github.com/agaric33/rica-blog/blob/main",
+    "url": "https://agaric33.github.io",
     "title": "agaric33/rica's Blog",
     "description": "这是agaric33/rica的个人博客，记录了我的一些想法和思考。",
     "keywords": "agaric33,rica,blog,personal,thoughts,ideas,notes",
@@ -11,12 +11,12 @@
   "author": {
     "name": "agaric33",
     "twitterId": "",
-    "avatar": "public/avarat.jpeg"
+    "avatar": "/avarat.jpeg"
   },
   "hero": {
     "name": "agaric33",
     "bio": "",
-    "description": "You can also call me rica.",
+    "description": "You can also call me rica / 电饭宝",
     "socials": [
       {
         "name": "Github",
