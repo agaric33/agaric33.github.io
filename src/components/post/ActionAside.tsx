@@ -64,10 +64,11 @@ function ShareButton() {
     <button
       type="button"
       aria-label="Share this post"
-      className="size-6 text-xl leading-none hover:text-accent"
+      className="flex items-center gap-1 text-xl leading-none hover:text-accent"
       onClick={() => openModal()}
     >
       <i className="iconfont icon-share"></i>
+      <span className="text-sm">share</span>
     </button>
   )
 }
@@ -119,15 +120,17 @@ function DonateButton() {
     <button
       type="button"
       aria-label="Donate to author"
-      className="size-6 text-xl leading-none hover:text-accent"
+      className="flex items-center gap-1 text-xl leading-none hover:text-accent"
       onClick={() => openDonate()}
     >
       <i className="iconfont icon-user-heart"></i>
+      <span className="text-sm">buy me a cup of coffee</span>
     </button>
   )
 }
 
-function DonateContent() {
+export function DonateContent() {
+  const images = [sponsor.wechat, sponsor.alipay].filter(Boolean)
   return (
     <motion.div
       initial={{ y: 20, opacity: 0 }}
@@ -136,15 +139,18 @@ function DonateContent() {
     >
       <h2 className="text-center mb-5">感谢您的支持，这将成为我前进的最大动力。</h2>
       <div className="flex flex-wrap gap-4 justify-center">
-        <img
-          className="object-cover"
-          width={300}
-          height={300}
-          src={sponsor.wechat}
-          alt="微信赞赏码"
-          loading="lazy"
-          decoding="async"
-        />
+        {images.map((src) => (
+          <img
+            key={src}
+            className="object-cover"
+            width={300}
+            height={300}
+            src={src}
+            alt="赞赏码"
+            loading="lazy"
+            decoding="async"
+          />
+        ))}
       </div>
     </motion.div>
   )

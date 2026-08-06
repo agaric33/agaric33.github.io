@@ -1,7 +1,7 @@
 ---
 title: rica-blog 使用指南
 date: 2026-08-04
-lastMod: 2026-08-05
+lastMod: 2026-08-06
 summary: 这是一个使用 rica-blog 模版搭建的博客。本文将介绍如何使用模版进行开发并在github上部署，分析可能遇到的问题并给出解决方案。
 category: 实操教程
 tags: [Astro, guide, icon]
@@ -142,7 +142,8 @@ pnpm new-feeling # 新建随想，打开vim编辑器输入内容并新建
   },
   // 赞助
   "sponsor": {
-    "wechat": "" // 微信赞赏码图片地址
+    "wechat": "", // 微信赞赏码图片地址
+    "alipay": "" // 支付宝赞赏码图片地址
   },
   // 如果需要使用网站数据统计，将 enable 修改为 true，并填写对应的配置
   "analytics": {
@@ -242,7 +243,7 @@ pnpm new-feeling # 新建随想，打开vim编辑器输入内容并新建
            uses: actions/deploy-pages@v4
    ```
 
-4. 打开你的仓库 https://github.com/yourname/yourname.github.io ，点击顶部标签栏的Settings（设置），左侧菜单找到Pages，Source下拉框选择 `GitHub Actions`
+4. 打开你新建的仓库，点击顶部标签栏的Settings（设置），左侧菜单找到Pages，Source下拉框选择 `GitHub Actions`
 
 5. 在仓库页面点击顶部Actions标签，会看到一条名为 Deploy to GitHub Pages 的 workflow 运行记录，点进去能看到两步：build 和 deploy。等待约 2-5 分钟，两个绿勾 ✅ 出现 = 部署成功
 

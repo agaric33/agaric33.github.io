@@ -112,7 +112,8 @@
     "serverURL": ""
   },
   "sponsor": {
-    "wechat": "https://xxxx.com/xxx.jpg"
+    "wechat": "/bymeacoffee.JPG",
+    "alipay": ""
   },
   "analytics": {
     "enable": false,
