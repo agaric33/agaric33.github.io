@@ -1,4 +1,4 @@
-本模版参考了https://github.com/lxchapu/astro-gyoza，在此基础上进行了个人风格的修改和调整
+本模版参考了[Goyza](https://github.com/lxchapu/astro-gyoza)，并在此基础上进行了个人风格的修改和调整
 
 live demo：https://agaric33.github.io/
 ![](demo.png)

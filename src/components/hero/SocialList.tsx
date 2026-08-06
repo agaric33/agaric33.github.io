@@ -47,7 +47,8 @@ export function SocialList({ className }: { className?: string }) {
                   className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 z-50
                     opacity-0 invisible pointer-events-none group-hover:opacity-100 group-hover:visible
                     transition-all duration-200 delay-150
-                    bg-primary border border-primary rounded-lg shadow-lg p-2"
+                    bg-primary border border-primary rounded-lg shadow-lg p-2
+                    flex flex-col items-center"
                 >
                   {social.image && (
                     <img
