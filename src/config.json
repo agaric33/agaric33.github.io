@@ -27,17 +27,20 @@
       {
         "name": "wechat",
         "icon": "icon-wechat",
-        "color": "rgb(7, 193, 96)"
+        "color": "rgb(7, 193, 96)",
+        "image": "/wechat-qrcode.JPG"
       },
       {
         "name": "rednote",
         "icon": "icon-rednote",
-        "color": "rgb(212, 70, 56)"
+        "color": "rgb(212, 70, 56)",
+        "url": "https://xhslink.cn/m/4zQkHmZqnEY"
       },
       {
         "name": "Email",
         "icon": "icon-mail",
-        "color": "rgb(105, 166, 216)"
+        "color": "rgb(105, 166, 216)",
+        "text": "814498472@qq.com"
       }
     ],
     "yiyan": "迷则行醒事，明则择事而行"
