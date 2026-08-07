@@ -38,4 +38,6 @@ University of Electronic Science and Technology of China (UESTC)
 
 感谢一直陪伴我的恋人和亲友们
 
-感谢努力的自己（懈怠躺平享乐的我也感谢_(:3 」∠ )_）
+感谢努力的自己
+
+(懈怠躺平享乐的自己也感谢_(:3 」∠ )_)
