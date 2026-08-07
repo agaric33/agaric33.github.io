@@ -116,9 +116,9 @@
     "alipay": ""
   },
   "analytics": {
-    "enable": false,
+    "enable": true,
     "google": {
-      "measurementId": ""
+      "measurementId": "G-G7KD32W1JN"
     },
     "umami": {
       "serverUrl": "",
