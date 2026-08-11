@@ -21,6 +21,8 @@ Ps：以下大部分网站需要魔法环境～
 
   选择ALL MAL，点击搜索按钮，输入设备mac前6位，比如我手机的蓝牙控制器的地址是`04:99:BB:xx:xx:xx`，则输入0499BB，Filter后查看结果）
 
+- [Google Analytics](https://analytics.google.com/analytics)：google流量监控，获取GID植入打点代码，查看网站流量
+
 ## 素材-图片处理
 
 - [tinypng](https://tinypng.com/)：批量图片压缩&格式转换
@@ -46,6 +48,8 @@ Ps：以下大部分网站需要魔法环境～
 - [哆啦迷全文搜索](https://dorasearch.cc/)：搜索哆啦A梦漫画中的对话内容和故事，快速定位你想要的情节。支持精确搜索和模糊搜索，涵盖全45卷内容。
 
 - [windows-xp模拟器](https://windows-xp.kimi.site/)：Windows XP 怀旧模拟器 · 2005
+
+- [libvio](https://www.libvio.app/)：影视剧合集，好康的（ x
 
 ## 学习
 

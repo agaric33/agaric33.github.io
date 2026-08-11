@@ -1,5 +1,6 @@
 ---
-import { getFormattedDateTime, getRelativeTime } from '@/utils/date'
+import { getFormattedDateTime } from '@/utils/date'
+import { RelativeTime } from '@/components/feelings/RelativeTime'
 import MarkdownWrapper from '@/components/MarkdownWrapper.astro'
 import type { CollectionEntry } from 'astro:content'
 
@@ -11,19 +12,13 @@ const { entry } = Astro.props
 
 const { Content } = await entry.render()
 
-const relativeTime = getRelativeTime(entry.data.date)
 const formattedTime = getFormattedDateTime(entry.data.date)
 ---
 
 <div class="group relative rounded-lg border border-primary bg-primary p-5 transition hover:border-accent/50 mb-[12px]">
   <div class="mb-3 flex items-center gap-3 text-sm text-secondary">
     <time datetime={entry.data.date.toISOString()}>{formattedTime}（UTC +08:00）</time>
-    {relativeTime && (
-      <>
-        <span>·</span>
-        <span class="text-accent/70">{relativeTime}</span>
-      </>
-    )}
+    <RelativeTime date={entry.data.date} client:idle />
   </div>
   <MarkdownWrapper class="feeling-content">
     <Content />
