@@ -22,14 +22,33 @@ export function getRelativeTime(startDate: Date, endDate = new Date()) {
   return null
 }
 
+// China timezone offset (UTC+8) in milliseconds. Date formatters below
+// compute China wall-clock time from the absolute timestamp, independent of
+// the runtime's local timezone. This keeps output consistent whether the code
+// runs on a local dev machine (UTC+8) or a UTC-based build/CI environment.
+const CHINA_OFFSET_MS = 8 * 60 * 60 * 1000
+
+// Return wall-clock components in China time (UTC+8). By shifting the
+// timestamp by the offset and reading UTC components, we get deterministic
+// China-time values regardless of the host timezone.
+export function getChinaParts(date: Date) {
+  const shifted = new Date(date.getTime() + CHINA_OFFSET_MS)
+  return {
+    year: shifted.getUTCFullYear(),
+    month: shifted.getUTCMonth() + 1,
+    day: shifted.getUTCDate(),
+    hours: shifted.getUTCHours(),
+    minutes: shifted.getUTCMinutes(),
+    dayOfWeek: shifted.getUTCDay(),
+  }
+}
+
 // 获取一个格式化的日期，格式为：2024 年 1 月 1 日 星期一
 export function getFormattedDate(date: Date) {
-  const year = date.getFullYear() % 100
-  const month = date.getMonth() + 1
-  const day = date.getDate()
-  const week = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'][date.getDay()]
+  const { year, month, day, dayOfWeek } = getChinaParts(date)
+  const week = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'][dayOfWeek]
 
-  return `${year} 年 ${month} 月 ${day} 日 ${week}`
+  return `${year % 100} 年 ${month} 月 ${day} 日 ${week}`
 }
 
 // 数字前补 0
@@ -39,13 +58,9 @@ function padZero(number: number, len = 2) {
 
 // 获取格式化后的日期时间，格式：2024 年 01 月 01 日 12:00
 export function getFormattedDateTime(date: Date) {
-  const year = date.getFullYear()
-  const month = padZero(date.getMonth() + 1)
-  const day = padZero(date.getDate())
-  const hours = padZero(date.getHours())
-  const minutes = padZero(date.getMinutes())
+  const { year, month, day, hours, minutes } = getChinaParts(date)
 
-  return `${year} 年 ${month} 月 ${day} 日 ${hours}:${minutes}`
+  return `${year} 年 ${padZero(month)} 月 ${padZero(day)} 日 ${padZero(hours)}:${padZero(minutes)}`
 }
 
 // 获取两个日期的相差的天数
@@ -55,10 +70,9 @@ export function getDiffInDays(startDate: Date, endDate = new Date()) {
 
 // 获取一个短的日期，格式为：04-20
 export function getShortDate(date: Date) {
-  const month = padZero(date.getMonth() + 1)
-  const day = padZero(date.getDate())
+  const { month, day } = getChinaParts(date)
 
-  return `${month}-${day}`
+  return `${padZero(month)}-${padZero(day)}`
 }
 
 // 获取日期所在的年一共多少天

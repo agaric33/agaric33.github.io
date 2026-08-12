@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content'
-import { getShortDate } from '@/utils/date'
+import { getShortDate, getChinaParts } from '@/utils/date'
 
 interface Props {
   posts: CollectionEntry<'posts'>[]
@@ -14,7 +14,9 @@ const groupedPosts = posts.reduce<
     posts: CollectionEntry<'posts'>[]
   }[]
 >((acc, cur) => {
-  const year = cur.data.date.getFullYear()
+  // Use China-time year for grouping so posts near year boundaries are
+  // grouped consistently regardless of the build host timezone.
+  const year = getChinaParts(cur.data.date).year
   const lastYearGroup = acc[acc.length - 1]
   if (lastYearGroup && lastYearGroup.year === year) {
     lastYearGroup.posts.push(cur)
