@@ -1,6 +1,22 @@
+Copyright Notice
+================
+
+This project is derived from the MIT-licensed astro-gyoza template
+(https://github.com/lxchapu/astro-gyoza). The project consists of two parts,
+each governed by different license terms:
+
+1. Template-derived code
+   Licensed under the MIT License, see the "MIT License" section below.
+
+2. Original content
+   All Rights Reserved, see the "Original Content" section below.
+
+------------------------------------------------------------
+
 MIT License
 
 Copyright (c) 2024 柃夏chapu
+Copyright (c) 2026 agaric33
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +35,17 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+------------------------------------------------------------
+
+Original Content — All Rights Reserved
+
+Except for the template-derived code covered by the MIT License above, the
+following original content in this project is All Rights Reserved. It may not
+be copied, used, modified, or redistributed without written permission:
+
+- Blog posts and original articles, images, and graphics
+- Custom pages and styling modifications
+
+To build your own blog, please use the original template:
+https://github.com/agaric33/rica-blog
