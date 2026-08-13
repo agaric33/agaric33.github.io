@@ -39,6 +39,8 @@ Ps：以下大部分网站需要魔法环境～
 
 - [iconify](https://icon-sets.iconify.design/)：open source icons，可以获取代码
 
+- [videezy](https://www.videezy.com/)：免费的视频素材网站
+
 ## forFun
 
 - [完美韵脚](https://www.wanmeiyunjiao.com/)：查找单押、双押、三押甚至四押的结果
