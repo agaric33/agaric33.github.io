@@ -1,6 +1,7 @@
 ---
 title: git常用命令合集
 date: 2026-08-06T21:51:08+08:00
+lastMod: 2026-08-18
 summary: “哥，不好了！我刚刚执行了 git push origin main --force……”  “没事，别慌。趁公司还没发现，你赶紧把简历改改，我也顺便投一份。”
 category: 分享
 tags: [share, git]
@@ -14,15 +15,13 @@ git官方指南：https://git-scm.com/book/zh/v2
 
 2.配置：用户名和邮箱，应用在每次提交代码版本时表明自己身份
 
-第一次使用时要设置用户名和邮箱，之后不需要（修改用户名和邮箱也是以下命令）
-
 ```bash
-# 全局设置
-git config --global user.name 你的用户名
-git config --global user.email 你的邮箱
-# 单项目设置
-git config user.name 你的用户名
-git config user.email 你的邮箱
+# 全局设置/修改（注意使用""包含信息）
+git config --global user.name "你的用户名"
+git config --global user.email "你的邮箱"
+# 单项目设置/修改
+git config user.name "你的用户名"
+git config user.email "你的邮箱"
 ```
 
 3.查看用户名和邮箱
@@ -30,6 +29,8 @@ git config user.email 你的邮箱
 ```bash
 git config user.name
 git config user.email
+# 查看所有配置信息
+git config --list
 ```
 
 ## 二、Git常用命令
@@ -39,62 +40,80 @@ git config user.email
 | 命令                                         | 作用                                                                        | 备注                                                                                                   |
 | -------------------------------------------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
 | git log                                      | 列出所有历史记录。按`PgUp`、`PgDn`、`↓`、`↑`控制显示，按`Q`退出历史记录列表 | 第一行的commit ...(HEAD -> master)代表提交到了master分支                                               |
-| git log --pretty=full                        | 获取全部基本信息                                                            | 和git log同效                                                                                          |
 | **git log --oneline**                        | 一行显示，简略信息                                                          | git log --pretty=oneline的简写                                                                         |
-| git log --graph                              | 带图形的日志                                                                |                                                                                                        |
 | git log --pretty=format:"%h - %an, %ar : %s" | 定制记录的显示格式                                                          | [Git - 查看提交历史 (git-scm.com)](https://git-scm.com/book/zh/v2/Git-基础-查看提交历史#pretty_format) |
-| git log --auther='作者名'                    | 查看筛选后提交记录，指定作者名                                              |                                                                                                        |
-| git reflog                                   | 查看本地提交历史                                                            | 包括revert                                                                                             |
 
-### 2.本地仓库操作
+### 2.本地文件状态
 
-| 命令                    | 作用                                                                                                                        | 备注                                                           |
-| ----------------------- | --------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
-| git init                | 初始化当前目录为仓库，初始化后会自动将当前仓库设置为master                                                                  | 会生成git的配置文件目录（隐藏）                                |
-| git add .               | 将文件添加到本地仓库的提交缓存（注意.前有空格）                                                                             |                                                                |
-| git add 文件标识        | 暂存指定文件                                                                                                                | 文件标识以终端为起始的相对路径                                 |
-| git commit -m "message" | 提交并保存，说明不可省略（''和""都可以）[提交典范Conventional Commits](https://www.conventionalcommits.org/zh-hans/v1.0.0/) | 如果不使用-m，会调用终端的注释编辑器输入描述信息               |
-| git commit --amend      | 重写上一次的提交信息                                                                                                        | 会进入编辑器界面                                               |
-| git status              | 查看文件状态 - 详细信息                                                                                                     | modified修改但未提交                                           |
-| git status -s           | 查看文件状态 - 简略信息                                                                                                     | A新添加未提交；M修改。提交了的文件且未改动的不会显示到这个里面 |
+| 命令                    | 作用                                                                                                                        | 备注                            |
+| ----------------------- | --------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| git init                | 初始化当前目录为仓库，初始化后会自动将当前仓库设置为master                                                                  | 会生成git的配置文件目录（隐藏） |
+| git add .               | 将文件添加到本地仓库的提交缓存（注意.前有空格）                                                                             |                                 |
+| git add <文件名>        | 暂存指定文件                                                                                                                | 文件标识以终端为起始的相对路径  |
+| git commit -m "message" | 提交并保存，说明不可省略（''和""都可以）[提交典范Conventional Commits](https://www.conventionalcommits.org/zh-hans/v1.0.0/) | --no-verify配置:跳过格式检查    |
+| git status              | 查看文件状态 - 详细信息                                                                                                     | -s配置:简略信息                 |
 
 ### 3.远程仓库操作
 
-| 命令                                       | 作用                                                                                                                                                                                     | 备注                                               |
-| ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
-| git remote add origin 远程仓库地址         | 将本地仓库关联到远程仓库                                                                                                                                                                 | origin远程仓库，如果是远程仓库必须使用这个选项     |
-| **git remote set-url origin 远程仓库地址** | 设置本地仓库关联的远程仓库地址                                                                                                                                                           | 支持HTTPS或SSH格式                                 |
-| git push -u origin master                  | -u：将本地仓库master及其分支一起提交上去，这样你就可以在远程仓库上看到你在本地仓库的master中创建了多少分支，不加这个参数只将当前的master与远程的合并，没有分支的历史记录，也不能切换分支 | 一般空远程仓库第一次上传使用                       |
-| git clone 远程仓库地址                     | 从0得到一个远程的Git仓库到本地使用，会自动以项目名作为项目最外层文件夹，不需要自新建进入再clone                                                                                          | 不需要初始化，使用该命令会自动帮我们初始化         |
-| git fetch origin 分支                      | 获取远端分支的更新，git fetch获取全部更新，不会自动合并或修改工作目录                                                                                                                    | pull = fetch + merge                               |
-| git pull origin 分支                       | 抓取，完整写法：git pull origin 远程分支名:本地分支名                                                                                                                                    | 该写法远程仓库与本地同名分支，完整写法可以任意分支 |
-| git push origin 分支                       | 推送，完整写法：git push origin 本地分支名:远程分支名                                                                                                                                    | 需同名                                             |
-| git pull 或 git push                       | 需要本地和远程分支建立链接                                                                                                                                                               |                                                    |
-| **git remote -v**                          | 查看远程仓库地址：fetch代表可以拉取仓库，push代表可以推送。如果没有权限只能拉取的情况下不会显示push。（不加-v只看到仓库名称）                                                            |                                                    |
-| git remote remove 分支名                   | 删除本地关联的远程仓库，可以用 git remote -v 看到关联情况                                                                                                                                | 一般使用`git remote remove origin`取消关联         |
-| git branch -vv                             | 显示本地分支与远端分支的链接关系                                                                                                                                                         |                                                    |
+| 命令                                         | 作用                                                                                | 备注                 |
+| -------------------------------------------- | ----------------------------------------------------------------------------------- | -------------------- |
+| git clone < url >                            | 从0得到一个远程的Git仓库到本地使用                                                  | 本地不需要再初始化   |
+| git fetch origin                             | 拉取远端所有分支信息到本地（不合并）                                                | pull = fetch + merge |
+| git fetch -p                                 | 清理本地已失效的远端分支引用（远端已删但本地还显示的                                |                      |
+| git checkout -b <本地名> origin/<远端名>     | 创建本地分支并跟踪远端分支，建立关联后后续 git pull/git push 无需指定参数           |                      |
+| git branch --set-upstream-to=origin/<分支名> | 本地和远端分支同名时建立关联                                                        |                      |
+| git remote -v                                | 查看远程仓库地址：fetch代表可以拉取仓库，push代表可以推送                           | 不加-v只看到仓库名称 |
+| git branch -vv                               | 显示本地分支与远端分支的链接关系<br />* featA xxxxxxx [origin/featA] commit message |                      |
+| git remote add origin < url >                | 首次添加远端仓库地址                                                                |                      |
+| git remote set-url origin <新url>            | 修改远端地址（可以https改成ssh或互换）                                              |                      |
 
 ### 4.分支操作
 
-| 命令                                | 作用                     | 备注                                           |
-| ----------------------------------- | ------------------------ | ---------------------------------------------- |
-| git branch 分支名                   | 创建分支                 |                                                |
-| **git checkout 分支名**             | 切换分支                 |                                                |
-| git checkout -b 分支名              | 创建并切换分支           |                                                |
-| **git branch**                      | 查看所有分支             | 分支前有星号的是当前分支                       |
-| git branch -r                       | 查看远程仓库中的所有分支 |                                                |
-| git branch -a                       | 查看本地和远端的所有分支 | 远程仓库中HEAD指向当前分支                     |
-| git branch -D 分支名                | 删除本地分支             |                                                |
-| git push origin --delete 远程分支名 | 删除远程分支             | 这里的远程分支名不需要加origin，输入分支名即可 |
-| git merge 分支名                    | 合并分支                 |                                                |
+| 命令                              | 作用                                   | 备注                         |
+| --------------------------------- | -------------------------------------- | ---------------------------- |
+| git branch 分支名                 | 创建分支                               |                              |
+| git checkout 分支名               | 切换分支                               |                              |
+| git checkout -b 分支名            | 创建并切换分支                         |                              |
+| git branch                        | 查看所有分支，分支前有星号的是当前分支 | -a配置:含远端，-r配置:仅远端 |
+| git branch -d 分支名              | 删除本地分支（安全删除）               | 改为-D配置:强制删除          |
+| git push origin --delete <分支名> | 删除远程分支                           | 直接用分支名即可             |
+| git merge 分支名                  | 合并分支                               |                              |
 
-当test分支开发完成提交至master时（合并前务必保证test分支最新，即已经包含了所有master内容）
+本地分支被其他目录占用
+
+```bash
+# 查看本地目录对应关联的git分支
+git worktree list
+# 显示如：（分支后显示prunable表示本地物理目录已被删除，但worktree注册信息还在，因此会一直占用分支）
+# /Users/rica/workspace/aaa    master
+# /Users/rica/workspace/bbb    feat
+# 移除本地工作树（不会删除分支），git分支空出
+git worktree remove "/Users/rica/workspace/bbb"
+```
+
+远端分支已删除，想清理本地分支
+
+```bash
+# 1. 删除 worktree（物理文件夹 + git 注册信息一起清掉）显示如：
+# /Users/rica/workspace/aaa    master
+# /Users/rica/workspace/bbb    feat
+git worktree remove "<worktree路径>"
+# 1.5 若自己手动删除了项目目录，或执行上述命令报错Permission denied权限不够需要手动删除：
+# 分支后显示prunable表示本地物理目录已被删除，但worktree注册信息还在，因此会一直占用分支，执行以下命令，只清注册信息
+git worktree prune -v
+# 2. 删除本地分支
+git branch -D featA
+# 3. 清理已失效的远程跟踪引用
+git fetch --prune
+```
+
+当feat分支开发完成提交至master时（合并前务必保证feat分支最新，即已经包含了所有master内容）
 
 ```bash
  // 切换至提交合并的分支
  git checkout master
- // 合并test
- git merge test
+ // 合并feat
+ git merge feat
 ```
 
 **rebase操作**
@@ -104,14 +123,13 @@ git config user.email
 | git rebase --abort    | 取消变基操作，恢复所有状态 | 例如有冲突时使用                             |
 
 ```bash
-// 切换至要提交的分支
+# 切换至要提交的分支
  git checkout test
-// 将test提交至master
+# 将test提交至master
  git rebase master
-
-// 切换回master
+# 切换回master
  git checkout master
-// 让指针向前移动
+# 让指针向前移动
  git merge test
 ```
 
@@ -142,13 +160,13 @@ tag是相较于commit独立的系统，当提交被reset回退时，tag依旧存
 
 4.远程仓库：git push之后文件推送到远程仓库。
 
-| 命令                         | 作用                                                                   | 备注                                                                                      |
-| ---------------------------- | ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| git reset --soft commiID     | 回滚点之后版本提交的文件将变为绿色存入暂存区中                         | 常用于取消上一次提交，将更改重新放入暂存区，以便进行修改后再次提交                        |
-| **git reset --soft HEAD～n** | 回退n次提交，改动保留在暂存区                                          | 不用查询commitID，使用更方便                                                              |
-| git reset --hard commiID     | 暂存区、工作区、回滚点之后已提交的文件全部丢弃                         | 永久性地丢弃本地的更改，谨慎使用                                                          |
-| git reset --mixed commiID    | 暂存区和回滚点之后已提交的文件全部丢弃；工作区中的文件继续保留在工作区 | git reset的默认选项，常用于取消上一次提交，但保留更改在工作目录中，不放入暂存区【最常用】 |
-| git reset --keep commiID     | 回滚点之后已提交的文件全部丢弃；暂存区内容保留；工作区所有文件撤销修改 | 用于保留提交内容但清空未提交的本地更改                                                    |
+| 命令                        | 作用                                                                   | 备注                                                                                      |
+| --------------------------- | ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| git reset --soft commiID    | 回滚点之后版本提交的文件将变为绿色存入暂存区中                         | 常用于取消上一次提交，将更改重新放入暂存区，以便进行修改后再次提交                        |
+| **git reset --soft HEAD~n** | 回退n次提交，改动保留在暂存区                                          | 不用查询commitID，使用更方便                                                              |
+| git reset --hard commiID    | 暂存区、工作区、回滚点之后已提交的文件全部丢弃                         | 永久性地丢弃本地的更改，谨慎使用                                                          |
+| git reset --mixed commiID   | 暂存区和回滚点之后已提交的文件全部丢弃；工作区中的文件继续保留在工作区 | git reset的默认选项，常用于取消上一次提交，但保留更改在工作目录中，不放入暂存区【最常用】 |
+| git reset --keep commiID    | 回滚点之后已提交的文件全部丢弃；暂存区内容保留；工作区所有文件撤销修改 | 用于保留提交内容但清空未提交的本地更改                                                    |
 
 **（2）revert**
 
@@ -168,11 +186,14 @@ git revert是用于“反做”某一个版本，以达到撤销该版本的修�
 这里以已有远程仓库，开发者从main创建新分支进行开发为例进行说明。多人分别创建不同分支进行开发，先push到远程仓库分支，再采用 pull request 的方式合并分支至master。
 
 1. 将远程仓库clone到本地；
-2. 在本地创建新的分支 `git checkout -b test`进行开发；
+2. 在本地创建新的分支进行开发：
+   - 远端未创建分支：`git checkout -b featA`
+   - 远端已有分支：`git fetch origin`; `git checkout featA`自动追踪origin/featA创建本地分支
+
 3. 开发完成后使用`git add .`、`git commit -m 'message'`提交到暂存区
 4. 将本地分支推向远端分支
-   1. 首次推送：git push -u origin test （首次用 -u 关联远程分支）
-   2. 后续推送：git push
+   - 远端未创建分支首次推送：git push -u origin featA
+   - 已有分支/后续推送：git push
 5. 到远程仓库页面，点击pull request按钮，填写标题和描述，选择目标分支（main），提交 PR。
 
 ## 四、本地新项目推送
