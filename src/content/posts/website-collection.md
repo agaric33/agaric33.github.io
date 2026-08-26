@@ -7,7 +7,7 @@ category: 分享
 tags: [share, icon]
 ---
 
-Ps：以下大部分网站需要魔法环境～
+Ps：以下网站可能需要魔法环境～
 
 ## 工具
 
@@ -22,6 +22,8 @@ Ps：以下大部分网站需要魔法环境～
   选择ALL MAL，点击搜索按钮，输入设备mac前6位，比如我手机的蓝牙控制器的地址是`04:99:BB:xx:xx:xx`，则输入0499BB，Filter后查看结果）
 
 - [Google Analytics](https://analytics.google.com/analytics)：google流量监控，获取GID植入打点代码，查看网站流量
+
+- [鼠标在线检测](https://cps-check.com/cn/mouse-buttons-test#google_vignette)：在线测试鼠标功能
 
 ## 素材-图片处理
 
@@ -53,11 +55,15 @@ Ps：以下大部分网站需要魔法环境～
 
 - [libvio](https://www.libvio.app/)：影视剧合集，好康的（ x
 
+- [guthib](https://guthib.com/)、[localhost8000](https://localhost8000.com/)：what's wrong?
+
 ## 学习
 
 - [代码随想录](https://programmercarl.com/algo/)：算法与数据结构刷题路线，跟着刷题面试不怕
 
 - [小林coding](https://xiaolincoding.com/)：从图解计算机到面试全攻略，涵盖计算机网络、操作系统等热门课程
+
+- [小白学Python](https://learn-py.org/)：python教程
 
 ## 典范
 
