@@ -1,6 +1,9 @@
 import { h } from 'hastscript'
 import { visit } from 'unist-util-visit'
 
+// Obsidian 风格的图片尺寸语法：![alt|300](src)、![alt|50%](src)
+const altWithSizePattern = /^(.*?)\|(\d+(?:\.\d+)?%?)$/i
+
 export function rehypeImage() {
   return function (tree) {
     visit(tree, 'element', (node, index, parent) => {
@@ -16,10 +19,33 @@ export function rehypeImage() {
   }
 }
 
-function buildImage(node) {
-  const imgProps = node.properties
+function parseAltSize(alt) {
+  if (typeof alt !== 'string') {
+    return { alt, width: undefined }
+  }
 
-  return h('img', { ...imgProps, loading: 'lazy' })
+  const match = alt.match(altWithSizePattern)
+  if (!match) {
+    return { alt, width: undefined }
+  }
+
+  return { alt: match[1], width: match[2] }
+}
+
+function buildImage(node) {
+  const { alt, width } = parseAltSize(node.properties.alt)
+  const imgProps = { ...node.properties, loading: 'lazy' }
+
+  if (width) {
+    imgProps.alt = alt
+    if (width.endsWith('%')) {
+      imgProps.style = `width:${width}`
+    } else {
+      imgProps.width = width
+    }
+  }
+
+  return h('img', imgProps)
 }
 
 function buildFigure(node) {

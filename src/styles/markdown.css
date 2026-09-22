@@ -88,7 +88,11 @@
 }
 
 .markdown img {
-  @apply rounded-lg bg-secondary min-h-[80px] min-w-[80px];
+  @apply rounded-lg bg-secondary min-h-[80px] min-w-[80px] max-w-full;
+}
+
+.markdown img[width] {
+  @apply min-h-0 min-w-0;
 }
 
 .markdown figure {

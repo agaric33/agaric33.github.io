@@ -37,17 +37,25 @@ All work and no play makes Jack a dull boy.
 
 ## 图片
 
-小尺寸的图片
+小尺寸的图片`![图片描述](https://picsum.photos/seed/picsum/250/400)`
 
 ![图片描述](https://picsum.photos/seed/picsum/250/400)
 
-大尺寸的图片
+大尺寸的图片`![图片描述](https://picsum.photos/seed/picsum/1200/900)`
 
 ![图片描述](https://picsum.photos/seed/picsum/1200/900)
 
-带标题的图片
+带标题的图片`![图片描述](https://picsum.photos/seed/picsum/400/300 '图片标题')`
 
 ![图片描述](https://picsum.photos/seed/picsum/400/300 '图片标题')
+
+控制图片大小`![图片描述|200](https://picsum.photos/seed/picsum/400/300)`
+
+![图片描述|200](https://picsum.photos/seed/picsum/400/300)
+
+指定百分比宽度`![图片描述|80%](https://picsum.photos/seed/picsum/400/300)`
+
+![图片描述|80%](https://picsum.photos/seed/picsum/400/300)
 
 ## 强调
 
